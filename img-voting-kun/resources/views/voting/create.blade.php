@@ -1,7 +1,7 @@
 @extends("app")
 
 @section("main")
-    <form action="{{ route("section.store") }}" method="post">
+    <form action="{{ route("voting.store") }}" method="post">
         @csrf
         <input type="hidden" name="_method" value="post" />
 
@@ -60,9 +60,8 @@
     </div>
 
     <script>
-        $(".img-big").on("click", function(e) {
-            let srcPath = $(this).children("img").attr("src");
-            console.log(srcPath);
+        $(".biggable-image").on("click", function(e) {
+            let srcPath = $(this).attr("src");
             $("#modal-img").attr("src", srcPath);
 
             $(".modal").modal();

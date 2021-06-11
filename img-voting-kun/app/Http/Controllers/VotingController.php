@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
+use App\UseCases\Voting\StoreUseCase;
 use Illuminate\Http\Request;
 
 class VotingController extends Controller
@@ -34,9 +35,23 @@ class VotingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, StoreUseCase $useCase)
     {
-        //
+        $request->validate([
+            "name" => "required|string|max:15",
+            "img" => "required|array|size:3"
+        ]);
+
+        $result = $useCase($request);
+        if ($result) {
+            return redirect()->route("voting.create-end");
+        } else {
+            return redirect()->route("voting.create");
+        }
+    }
+
+    public function createEnd() {
+        return view("voting.create-end");
     }
 
     /**
