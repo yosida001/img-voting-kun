@@ -17,9 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/test", function() {
-    return "test";
-});
-
 Route::get("/section/create", [\App\Http\Controllers\SectionController::class, "create"])->name("section.create");
 Route::post("/section/store", [\App\Http\Controllers\SectionController::class, "store"])->name("section.store");
