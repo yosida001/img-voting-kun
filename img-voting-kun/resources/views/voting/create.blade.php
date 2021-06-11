@@ -60,9 +60,10 @@
     </div>
 
     <script>
-        $(".img-big").on("click", (e) => {
-            let srcPath = $(e.target).find(".biggable-image").prop("src");
-            $("#modal-img").prop("src", srcPath);
+        $(".img-big").on("click", function(e) {
+            let srcPath = $(e.target).children(".biggable-image").attr("src");
+            console.log(srcPath);
+            $("#modal-img").attr("src", srcPath);
 
             $(".modal").modal();
         });
