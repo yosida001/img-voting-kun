@@ -25,7 +25,9 @@ class VotingController extends Controller
      */
     public function create()
     {
-        $images = Image::all();
+        $images = Image::all()->shuffle(); //表示順はシャッフル
+
+
         return view("voting.create", compact("images"));
     }
 
