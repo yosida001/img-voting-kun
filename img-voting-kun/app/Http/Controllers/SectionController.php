@@ -45,7 +45,16 @@ class SectionController extends Controller
             "photo3_detail" => "required|string|max:100",
         ]);
 
-        $section = $useCase($request);
+        $result = $useCase($request);
+        if ($result) {
+            return redirect()->route("section.create-end");
+        } else {
+            return redirect()->route("section.create");
+        }
+    }
+
+    public function createEnd() {
+        return view("section.create-end");
     }
 
     /**
