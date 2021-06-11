@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get("/section/create", [\App\Http\Controllers\SectionController::class, "create"])->name("section.create");
 Route::post("/section/store", [\App\Http\Controllers\SectionController::class, "store"])->name("section.store");
 Route::get("/section/create-end", [\App\Http\Controllers\SectionController::class, "createEnd"])->name("section.create-end");
+
+Route::get("/voting/create", [\App\Http\Controllers\VotingController::class, "create"])->name("voting.create");

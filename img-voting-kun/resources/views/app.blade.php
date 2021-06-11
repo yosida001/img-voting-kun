@@ -43,8 +43,7 @@
             </ul>
         </div>
     @endif
-
-    @yield("main")
 </div>
+    @yield("main")
 </body>
 </html>
