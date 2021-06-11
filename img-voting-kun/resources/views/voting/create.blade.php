@@ -26,7 +26,7 @@
                 @foreach($images as $index => $image)
                 <div class="col-12 col-sm-4">
                     <figure class="figure">
-                        <img src="{{ $image->path }}" alt="{{ $image->title }}" class="bd-placeholder-img figure-img img-fluid rounded img-thumbnail" width="480" height="270">
+                        <img src="storage/{{ $image->path }}" alt="{{ $image->title }}" class="bd-placeholder-img figure-img img-fluid rounded img-thumbnail" width="480" height="270">
                         <figcaption class="figure-caption">{{ $image->title }}</figcaption>
                     </figure>
                 </div>
