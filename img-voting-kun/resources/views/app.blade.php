@@ -10,7 +10,23 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container">
+<div class="container" style="margin-top: 2rem">
+    @if(session('message'))
+        <div class="card text-white bg-info mb-3">
+            <div class="card-body">
+                <p class="card-text">{!! nl2br(session("message")) !!}</p>
+            </div>
+        </div>
+    @endif
+
+        @if(session('error'))
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-body">
+                    <p class="card-text">{!! nl2br(session("error")) !!}</p>
+                </div>
+            </div>
+        @endif
+
 @yield("main")
 </div>
 </body>

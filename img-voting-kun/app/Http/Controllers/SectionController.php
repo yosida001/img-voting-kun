@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\UseCases\Section\StoreUseCase;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
@@ -32,9 +33,19 @@ class SectionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, StoreUseCase $useCase)
     {
-        //
+        $request->validate([
+            "name" => "required|string|max:15",
+            "photo1" => "required|file|image|max:1000",
+            "photo1_detail" => "required|string|max:100",
+            "photo2" => "required|file|image|max:1000",
+            "photo2_detail" => "required|string|max:100",
+            "photo3" => "required|file|image|max:1000",
+            "photo3_detail" => "required|string|max:100",
+        ]);
+
+        $section = $useCase($request);
     }
 
     /**
