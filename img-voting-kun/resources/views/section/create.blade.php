@@ -1,7 +1,7 @@
 @extends("app")
 
 @section("main")
-    <form action="{{ route("section.store") }}" method="post">
+    <form action="{{ route("section.store") }}" method="post" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="_method" value="post" />
         <div class="card">
