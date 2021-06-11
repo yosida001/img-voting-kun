@@ -29,8 +29,12 @@ class StoreUseCase
         try {
 
             $section->save();
+
+            $photo1->section_id = $section->id;
             $photo1->save();
+            $photo2->section_id = $section->id;
             $photo2->save();
+            $photo3->section_id = $section->id;
             $photo3->save();
 
 
