@@ -61,7 +61,7 @@
 
     <script>
         $(".img-big").on("click", () => {
-            let srcPath = $(this.target > ".biggable-image").prop("src");
+            let srcPath = $(this.target).find(".biggable-image").prop("src");
             console.log(srcPath);
             $("#modal-img").prop("src", srcPath);
 
