@@ -21,18 +21,30 @@
 
         </div>
 
-        <div class="container-fluid">
+        <div class="container-fluid mt-2">
             <div class="row">
                 @foreach($images as $index => $image)
                 <div class="col-12 col-sm-4">
                     <figure class="figure">
-                        <img src="{{ url("storage/{$image->path}") }}" alt="{{ $image->title }}" class="bd-placeholder-img figure-img img-fluid rounded img-thumbnail" width="480" height="270">
-                        <figcaption class="figure-caption">{{ $image->title }}</figcaption>
+                        <img src="{{ url("storage/{$image->path}") }}" alt="{{ $image->title }}" class="bd-placeholder-img figure-img img-fluid mx-auto rounded img-thumbnail" width="480" height="270">
+                        <figcaption class="figure-caption">
+                            <input type="checkbox" name="img[]" value="{{ $image->id }}">&nbsp;
+                            {{ $image->title }}
+                        </figcaption>
                     </figure>
                 </div>
                 @endforeach
             </div>
         </div>
 
+        <div class="container mt-2">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">投票する</button>
+                    </p>
+                </div>
+            </div>
+        </div>
     </form>
 @endsection
