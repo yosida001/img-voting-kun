@@ -25,11 +25,13 @@
             <div class="row">
                 @foreach($images as $index => $image)
                 <div class="col-12 col-sm-4">
-                    <figure class="figure">
-                        <img src="{{ url("storage/{$image->path}") }}" alt="{{ $image->title }}" class="bd-placeholder-img figure-img img-fluid mx-auto rounded img-thumbnail" width="480" height="270">
+                    <figure class="figure img-big">
+                        <img src="{{ url("storage/{$image->path}") }}" alt="{{ $image->title }}" class="bd-placeholder-img figure-img img-fluid mx-auto rounded img-thumbnail biggable-image" width="480" height="270">
                         <figcaption class="figure-caption">
-                            <input type="checkbox" name="img[]" value="{{ $image->id }}">&nbsp;
-                            {{ $image->title }}
+                            <label>
+                                <input type="checkbox" name="img[]" value="{{ $image->id }}">&nbsp;
+                                {{ $image->title }}
+                            </label>
                         </figcaption>
                     </figure>
                 </div>
@@ -47,4 +49,22 @@
             </div>
         </div>
     </form>
+
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <img id="modal-img" src="#" width="1280" height="720">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(".img-big").on("click", () => {
+            let srcPath = $(this.target > ".biggable-image").attr("src");
+            $("#modal-img").attr("src", srcPath);
+
+            $(".modal").modal();
+        });
+    </script>
 @endsection
