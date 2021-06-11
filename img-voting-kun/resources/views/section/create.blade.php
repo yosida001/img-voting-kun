@@ -10,7 +10,7 @@
                 <h6 class="card-subtitle" style="margin-bottom: 1rem;">投票対象になるポケモンスナップの画像をアップロードしてください。</h6>
                 <div class="form-group">
                     <label for="name">投稿者名</label>
-                    <input type="text" class="form-control" id="name" aria-describedby="nameHelp">
+                    <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp">
                     <small id="nameHelp" class="form-text text-muted">あなたの名前を入力してください。</small>
                 </div>
                 <fieldset>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label for="photo2_detail">画像２の説明文</label>
-                        <input type="text" class="form-control" id="photo2_detail" aria-describedby="photo2DetailHelp">
+                        <input type="text" class="form-control" id="photo2_detail" name="photo2_detail" aria-describedby="photo2DetailHelp">
                         <small id="photo2DetailHelp" class="form-text text-muted">画像２の説明文を入力してください。そのままタイトルとして投票時に表示されます。</small>
                     </div>
                 </fieldset>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label for="photo3_detail">画像３の説明文</label>
-                        <input type="text" class="form-control" id="photo3_detail" aria-describedby="photo3DetailHelp">
+                        <input type="text" class="form-control" id="photo3_detail" name="photo3_detail" aria-describedby="photo3DetailHelp">
                         <small id="photo3DetailHelp" class="form-text text-muted">画像３の説明文を入力してください。そのままタイトルとして投票時に表示されます。</small>
                     </div>
                 </fieldset>
