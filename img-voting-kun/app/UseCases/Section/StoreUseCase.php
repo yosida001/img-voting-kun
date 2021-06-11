@@ -10,21 +10,28 @@ use Illuminate\Support\Facades\DB;
 
 class StoreUseCase
 {
+    /**
+     * @param Request $request
+     * @return bool
+     */
     public function __invoke(Request $request)
     {
         $section = new Section();
         $section->name = $request->input("name");
 
         $photo1 = new Image();
-        $photo1->path = $request->file("photo1")->store("images");
+        $path1 = $request->file("photo1")->store("public");
+        $photo1->path = str_replace('public/', '', $path1);
         $photo1->title = $request->input("photo1_detail");
 
         $photo2 = new Image();
-        $photo2->path = $request->file("photo2")->store("images");
+        $path2 = $request->file("photo2")->store("public");
+        $photo2->path = str_replace('public/', '', $path2);
         $photo2->title = $request->input("photo2_detail");
 
         $photo3 = new Image();
-        $photo3->path = $request->file("photo3")->store("images");
+        $path3 = $request->file("photo3")->store("public");
+        $photo3->path = str_replace('public/', '', $path3);
         $photo3->title = $request->input("photo3_detail");
 
         try {
@@ -41,7 +48,6 @@ class StoreUseCase
 
 
             $request->session()->flash("message", "画像投稿に成功しました。投票をお待ちください。");
-            return true;
 
             DB::commit();
         } catch (\Exception $e) {
@@ -51,5 +57,6 @@ class StoreUseCase
             $request->session()->flash("error", "画像投稿に失敗しました。しばらく時間をおいてからもう一度行ってください。");
             return false;
         }
+        return true;
     }
 }
