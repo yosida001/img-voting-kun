@@ -6,6 +6,7 @@ namespace App\UseCases\Section;
 use App\Models\Image;
 use App\Models\Section;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StoreUseCase
 {
@@ -27,6 +28,7 @@ class StoreUseCase
         $photo3->title = $request->input("photo3_detail");
 
         try {
+            DB::beginTransaction();
 
             $section->save();
 
@@ -40,7 +42,10 @@ class StoreUseCase
 
             $request->session()->flash("message", "画像投稿に成功しました。投票をお待ちください。");
             return true;
+
+            DB::commit();
         } catch (\Exception $e) {
+            DB::rollBack();
             report($e);
 
             $request->session()->flash("error", "画像投稿に失敗しました。しばらく時間をおいてからもう一度行ってください。");
