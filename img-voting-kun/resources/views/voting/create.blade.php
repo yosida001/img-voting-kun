@@ -54,15 +54,16 @@
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <img id="modal-img" src="#" width="1280" height="720">
+                <img id="modal-img" src="#" style="max-width: 100%">
             </div>
         </div>
     </div>
 
     <script>
         $(".img-big").on("click", () => {
-            let srcPath = $(this.target > ".biggable-image").attr("src");
-            $("#modal-img").attr("src", srcPath);
+            let srcPath = $(this.target > ".biggable-image").prop("src");
+            console.log(srcPath);
+            $("#modal-img").prop("src", srcPath);
 
             $(".modal").modal();
         });
