@@ -12,7 +12,7 @@
                     <h5 class="card-title">投票画面</h5>
                     <h6 class="card-subtitle" style="margin-bottom: 1rem;">お気に入りの写真３つをクリックして投票してください。</h6>
                     <div class="form-group">
-                        <label for="name">投稿者名</label>
+                        <label for="name">投票者名</label>
                         <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp">
                         <small id="nameHelp" class="form-text text-muted">あなたの名前を入力してください。</small>
                     </div>
