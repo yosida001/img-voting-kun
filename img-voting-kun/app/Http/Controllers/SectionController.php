@@ -37,11 +37,11 @@ class SectionController extends Controller
     {
         $request->validate([
             "name" => "required|string|max:15",
-            "photo1" => "required|file|image|max:1000",
+            "photo1" => "required|file|image|max:4000",
             "photo1_detail" => "required|string|max:100",
-            "photo2" => "required|file|image|max:1000",
+            "photo2" => "required|file|image|max:4000",
             "photo2_detail" => "required|string|max:100",
-            "photo3" => "required|file|image|max:1000",
+            "photo3" => "required|file|image|max:4000",
             "photo3_detail" => "required|string|max:100",
         ]);
 
